@@ -7,7 +7,7 @@ export default function Controls() {
     var actions = {
         "launch":1,
         "delete":2,
-        "download an image":3,
+        "download image":3,
         "show": 4
     };
     var stat;
@@ -56,6 +56,7 @@ export default function Controls() {
         var default_image = "centos:latest";
         var input = document.getElementsByName("actions");
         input = input[0].value;
+        // console.log(action);
         if (input === "") {
             alert("Empty Input, Please Enter Something(an image, container name, etc) before Submitting");
         }
@@ -64,15 +65,19 @@ export default function Controls() {
             var cmd;
             if(action === 1) {
                 cmd = `docker run -dit --name: ${input} ${default_image}`;
+                console.log(cmd);
             }
             else if(action === 2) {
                 cmd = `docker rm -f ${input}`;
+                console.log(cmd);
             }
             else if(action === 3) {
                 cmd = `docker pull ${input}`;
+                console.log(cmd);
             }
             else if(action === 4) {
                 cmd = `docker ps ${input}`;
+                console.log(cmd);
             }
             else {
                 console.log("errr....");
